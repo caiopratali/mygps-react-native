@@ -5,7 +5,6 @@ import {Home} from '../pages/Home';
 import theme from '../styles/theme';
 import {Status} from '../pages/Status';
 import {HeaderButton} from '../components/HeaderButton';
-import {Animated} from 'react-native';
 
 const {Navigator, Screen} = createStackNavigator();
 

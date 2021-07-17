@@ -1,9 +1,5 @@
 import React from 'react';
 
-import {Container, Header} from './styles';
+import {Container} from './styles';
 
-export const Status: React.FC = () => (
-  <Container>
-    <Header />
-  </Container>
-);
+export const Status: React.FC = () => <Container />;
