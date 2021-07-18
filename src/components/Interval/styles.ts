@@ -14,15 +14,3 @@ export const TimeButtonList = styled.View`
   flex-direction: row;
   justify-content: space-between;
 `;
-
-export const TimeButton = styled.TouchableOpacity`
-  width: 70px;
-  height: 70px;
-  justify-content: center;
-  align-items: center;
-  border-width: 1px;
-  border-color: ${({theme}) => theme.colors.green};
-  border-radius: 4px;
-`;
-
-export const TimeButtonText = styled.Text``;

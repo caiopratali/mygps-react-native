@@ -1,6 +1,10 @@
 import styled from 'styled-components/native';
 import FeatherIcons from 'react-native-vector-icons/Feather';
 
+interface StatusProps {
+  status: boolean;
+}
+
 export const Container = styled.View`
   width: 100%;
   height: 100px;
@@ -24,8 +28,9 @@ export const Title = styled.Text`
   color: ${({theme}) => theme.colors.text};
 `;
 
-export const Status = styled.Text`
+export const Status = styled.Text<StatusProps>`
   font-family: ${({theme}) => theme.fonts.regular};
   font-size: 16px;
-  color: ${({theme}) => theme.colors.green};
+  color: ${({theme, status}) =>
+    status ? theme.colors.green : theme.colors.red};
 `;

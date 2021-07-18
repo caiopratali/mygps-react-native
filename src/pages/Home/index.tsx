@@ -7,8 +7,8 @@ import {Container} from './styles';
 
 export const Home: React.FC = () => (
   <Container>
-    <CurrentStatus />
+    <CurrentStatus title="My GPS - Tracking" connectionStatus={false} />
     <ServiceStatus />
-    <Interval />
+    <Interval title="Intervalo de comunicação" />
   </Container>
 );

@@ -2,12 +2,22 @@ import React from 'react';
 
 import {Container, Icon, StatusInfo, Title, Status} from './styles';
 
-export const CurrentStatus: React.FC = () => (
+interface CurrentStatusProps {
+  title: string;
+  connectionStatus: boolean;
+}
+
+export const CurrentStatus: React.FC<CurrentStatusProps> = ({
+  title,
+  connectionStatus,
+}) => (
   <Container>
     <Icon name="compass" />
     <StatusInfo>
-      <Title>My GPS - Tracking</Title>
-      <Status>Online</Status>
+      <Title>{title}</Title>
+      <Status status={connectionStatus}>
+        {connectionStatus ? 'Online' : 'Offline'}
+      </Status>
     </StatusInfo>
   </Container>
 );

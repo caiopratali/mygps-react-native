@@ -23,10 +23,10 @@ export const Status = styled.Text`
   font-size: 14px;
 `;
 
-export const SwitchButton = styled.Switch.attrs({
+export const SwitchButton = styled.Switch.attrs(props => ({
   trackColor: {
     false: theme.colors.secondary_text,
     true: theme.colors.secondary_text,
   },
-  thumbColor: theme.colors.red,
-})``;
+  thumbColor: props.value ? theme.colors.green : theme.colors.red,
+}))``;

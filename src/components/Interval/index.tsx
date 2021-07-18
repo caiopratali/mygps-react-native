@@ -1,28 +1,30 @@
 import React from 'react';
-import {
-  Container,
-  Title,
-  TimeButtonList,
-  TimeButton,
-  TimeButtonText,
-} from './styles';
+import {useState} from 'react';
+import {StatusIntervalButton} from '../StatusIntervalButton';
+import {Container, Title, TimeButtonList} from './styles';
 
-export const Interval: React.FC = () => (
-  <Container>
-    <Title>Intervalo de comunicação</Title>
-    <TimeButtonList>
-      <TimeButton>
-        <TimeButtonText>10s</TimeButtonText>
-      </TimeButton>
-      <TimeButton>
-        <TimeButtonText>5s</TimeButtonText>
-      </TimeButton>
-      <TimeButton>
-        <TimeButtonText>3s</TimeButtonText>
-      </TimeButton>
-      <TimeButton>
-        <TimeButtonText>1s</TimeButtonText>
-      </TimeButton>
-    </TimeButtonList>
-  </Container>
-);
+interface IntervalProps {
+  title: string;
+}
+
+export const Interval: React.FC<IntervalProps> = ({title}) => {
+  const [selectedTime, setSelectedTime] = useState(10);
+
+  const time = [10, 5, 3, 1];
+
+  return (
+    <Container>
+      <Title>{title}</Title>
+      <TimeButtonList>
+        {time.map(setTime => (
+          <StatusIntervalButton
+            key={setTime}
+            time={setTime}
+            isActive={selectedTime === setTime}
+            onPress={() => setSelectedTime(setTime)}
+          />
+        ))}
+      </TimeButtonList>
+    </Container>
+  );
+};
