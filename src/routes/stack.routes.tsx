@@ -40,7 +40,7 @@ export const StackRoutes: React.FC = () => {
       <Screen
         name="Status"
         component={Status}
-        options={{
+        options={({navigation}) => ({
           headerTitleAlign: 'center',
           headerTitleStyle: {
             color: theme.colors.white,
@@ -48,7 +48,10 @@ export const StackRoutes: React.FC = () => {
             fontFamily: theme.fonts.bold,
             fontSize: 16,
           },
-        }}
+          headerLeft: () => (
+            <HeaderButton text="Voltar" onPress={() => navigation.goBack()} />
+          ),
+        })}
       />
     </Navigator>
   );
