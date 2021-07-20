@@ -1,5 +1,6 @@
 import React from 'react';
-import {useState} from 'react';
+import {useServiceStatusContext} from '../../contexts/ServiceStatusContext';
+
 import {StatusIntervalButton} from '../StatusIntervalButton';
 import {Container, Title, TimeButtonList} from './styles';
 
@@ -8,7 +9,7 @@ interface IntervalProps {
 }
 
 export const Interval: React.FC<IntervalProps> = ({title}) => {
-  const [selectedTime, setSelectedTime] = useState(10);
+  const {selectedTime, setSelectedTime} = useServiceStatusContext();
 
   const time = [10, 5, 3, 1];
 
