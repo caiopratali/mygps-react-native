@@ -1,16 +1,19 @@
 import React from 'react';
-import {useServiceStatusContext} from '../../contexts/ServiceStatusContext';
 
 import {StatusIntervalButton} from '../StatusIntervalButton';
 import {Container, Title, TimeButtonList} from './styles';
 
 interface IntervalProps {
   title: string;
+  selectedTime: number;
+  setSelectedTime: (c: number) => void;
 }
 
-export const Interval: React.FC<IntervalProps> = ({title}) => {
-  const {selectedTime, setSelectedTime} = useServiceStatusContext();
-
+export const Interval: React.FC<IntervalProps> = ({
+  title,
+  selectedTime,
+  setSelectedTime,
+}) => {
   const time = [10, 5, 3, 1];
 
   return (

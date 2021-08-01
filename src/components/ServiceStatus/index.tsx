@@ -2,14 +2,17 @@ import React, {useState} from 'react';
 import Geolocation from '@react-native-community/geolocation';
 import {Platform, Alert, PermissionsAndroid} from 'react-native';
 
-import {useServiceStatusContext} from '../../contexts/ServiceStatusContext';
-
 import {Container, ServiceInfo, Title, Status, SwitchButton} from './styles';
-import {useEffect} from 'react';
-import secondsToMilliseconds from 'date-fns/secondsToMilliseconds';
 
-export const ServiceStatus: React.FC = () => {
-  const {isEnabled, setIsEnabled, selectedTime} = useServiceStatusContext();
+interface ServiceStatusProps {
+  isEnabled: boolean;
+  setIsEnabled: (c: boolean) => void;
+}
+
+export const ServiceStatus: React.FC<ServiceStatusProps> = ({
+  isEnabled,
+  setIsEnabled,
+}) => {
   const [currentLatitude, setCurrentLatitude] = useState('');
   const [currentLongitude, setCurrentLongitude] = useState('');
   const [watchID, setWatchID] = useState(0);
@@ -63,22 +66,13 @@ export const ServiceStatus: React.FC = () => {
     setIsEnabled(value);
   };
 
-  const milliseconds = secondsToMilliseconds(selectedTime);
-
-  useEffect(() => {
-    if (isEnabled) {
-      const interval = setInterval(() => {
-        console.log({milliseconds, currentLatitude, currentLongitude});
-      }, milliseconds);
-      return () => clearInterval(interval);
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [milliseconds, isEnabled]);
-
   return (
     <Container>
       <ServiceInfo>
         <Title>Status do serviço</Title>
+        {!isEnabled || (
+          <Title>{`Lat: ${currentLatitude}, Lon: ${currentLongitude}`}</Title>
+        )}
         <Status>{isEnabled ? 'Serviço ativo' : 'Serviço inativo'}</Status>
       </ServiceInfo>
       <SwitchButton

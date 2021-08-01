@@ -1,25 +1,37 @@
-import React from 'react';
-import {Text} from 'react-native';
-import {useSelector} from 'react-redux';
+import React, {useState} from 'react';
+import {useEffect} from 'react';
+import {useDispatch, useSelector} from 'react-redux';
 
 import {CurrentStatus} from '../../components/CurrentStatus';
 import {Interval} from '../../components/Interval';
 import {ServiceStatus} from '../../components/ServiceStatus';
-import {IState} from '../../store';
+import {fetchPoints} from '../../redux/reducer';
 
 import {Container} from './styles';
 
 export const Home: React.FC = () => {
-  const points = useSelector<IState, string[]>(state => state.point.keys);
+  const [isEnabled, setIsEnabled] = useState(false);
+  const [selectedTime, setSelectedTime] = useState(10);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchPoints());
+  }, [dispatch]);
+
+  const selector = useSelector(state => state.packages);
+
+  console.log(selector);
 
   return (
     <Container>
       <CurrentStatus title="My GPS - Tracking" />
-      <ServiceStatus />
-      <Interval title="Intervalo de comunicação" />
-      {points.map(item => (
-        <Text key={new Date().getTime()}>{JSON.stringify(item)}</Text>
-      ))}
+      <ServiceStatus isEnabled={isEnabled} setIsEnabled={setIsEnabled} />
+      <Interval
+        title="Intervalo de comunicação"
+        selectedTime={selectedTime}
+        setSelectedTime={setSelectedTime}
+      />
     </Container>
   );
 };
