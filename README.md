@@ -50,7 +50,7 @@ $ docker-compose up --build
 Para acessar a documentação dos endpoints, basta acessar a URL: http://localhost:8081/doc
 
 <p align="center">
-  <a href="https://github.com/caiopratali/mygps-react-native/assets/json/mygps-endpoints-insomnia.json" target="_blank"><img src="https://insomnia.rest/images/run.svg" alt="Run in Insomnia"></a>
+  <a href="https://github.com/caiopratali/mygps-react-native/blob/main/assets/json/mygps-endpoints-insomnia.json" target="_blank"><img src="https://insomnia.rest/images/run.svg" alt="Run in Insomnia"></a>
 </p>
 
 
