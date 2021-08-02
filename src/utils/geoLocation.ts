@@ -53,25 +53,29 @@ export const callLocation = ({
     });
   } else {
     const requestLocationPermission = async () => {
-      const granted = await PermissionsAndroid.request(
-        PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
-        {
-          title: 'Permissão de acesso à localização',
-          message: 'Este aplicativo precisa acessar sua localicação',
-          buttonNeutral: 'Pergunte-me depois',
-          buttonNegative: 'Cancelar',
-          buttonPositive: 'OK',
-        },
-      );
-      if (granted === PermissionsAndroid.RESULTS.GRANTED) {
-        getLocation({
-          setCurrentLatitude,
-          setCurrentLongitude,
-          setCurrentSpeed,
-          setWatchID,
-        });
-      } else {
-        Alert.alert('Permissão de localização negada');
+      try {
+        const granted = await PermissionsAndroid.request(
+          PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
+          {
+            title: 'Permissão de acesso à localização',
+            message: 'Este aplicativo precisa acessar sua localicação',
+            buttonNeutral: 'Pergunte-me depois',
+            buttonNegative: 'Cancelar',
+            buttonPositive: 'OK',
+          },
+        );
+        if (granted === PermissionsAndroid.RESULTS.GRANTED) {
+          getLocation({
+            setCurrentLatitude,
+            setCurrentLongitude,
+            setCurrentSpeed,
+            setWatchID,
+          });
+        } else {
+          Alert.alert('Permissão de localização negada');
+        }
+      } catch (error) {
+        console.warn(error);
       }
     };
     requestLocationPermission();
