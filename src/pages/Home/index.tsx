@@ -16,6 +16,7 @@ export const Home: React.FC = () => {
   const [milliseconds, setMilliseconds] = useState(10000);
   const [currentLatitude, setCurrentLatitude] = useState('');
   const [currentLongitude, setCurrentLongitude] = useState('');
+  const [currentSpeed, setCurrentSpeed] = useState(0);
   const [watchID, setWatchID] = useState(0);
 
   const dispatch = useDispatch();
@@ -27,9 +28,9 @@ export const Home: React.FC = () => {
         id: JSON.stringify(new Date().getTime()),
         latitude: currentLatitude,
         longitude: currentLongitude,
-        speed: 50,
+        speed: currentSpeed,
         time: format(new Date(), 'dd/MM/yyyy'),
-        hour: format(new Date(), 'hh:mm'),
+        hour: format(new Date(), 'HH:mm'),
         status: false,
       },
     });
@@ -39,7 +40,14 @@ export const Home: React.FC = () => {
       }, milliseconds);
       return () => clearInterval(interval);
     }
-  }, [isEnabled, dispatch, currentLatitude, currentLongitude, milliseconds]);
+  }, [
+    isEnabled,
+    dispatch,
+    currentLatitude,
+    currentLongitude,
+    currentSpeed,
+    milliseconds,
+  ]);
 
   useEffect(() => {
     setMilliseconds(selectedTime * 1000);
@@ -53,6 +61,7 @@ export const Home: React.FC = () => {
         setIsEnabled={setIsEnabled}
         setCurrentLatitude={setCurrentLatitude}
         setCurrentLongitude={setCurrentLongitude}
+        setCurrentSpeed={setCurrentSpeed}
         setWatchID={setWatchID}
         watchID={watchID}
       />

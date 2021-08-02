@@ -8,6 +8,7 @@ interface ServiceStatusProps {
   setIsEnabled: (c: boolean) => void;
   setCurrentLatitude: (c: string) => void;
   setCurrentLongitude: (c: string) => void;
+  setCurrentSpeed: (c: number) => void;
   setWatchID: (c: number) => void;
   watchID: number;
 }
@@ -17,12 +18,18 @@ export const ServiceStatus: React.FC<ServiceStatusProps> = ({
   setIsEnabled,
   setCurrentLatitude,
   setCurrentLongitude,
+  setCurrentSpeed,
   setWatchID,
   watchID,
 }) => {
   const handleServiceActivation = (value: boolean) => {
     value
-      ? callLocation({setCurrentLatitude, setCurrentLongitude, setWatchID})
+      ? callLocation({
+          setCurrentLatitude,
+          setCurrentLongitude,
+          setCurrentSpeed,
+          setWatchID,
+        })
       : clearLocation(watchID);
     setIsEnabled(value);
   };
