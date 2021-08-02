@@ -14,36 +14,40 @@
 
 <p align="center">Application developed with React Native and Redux, which sends location at each selected time interval.</p>
 
-<p align="center">
+<!-- <p align="center">
  <a href="#objetivo">Objetivo</a> •
  <a href="#roadmap">Roadmap</a> • 
  <a href="#tecnologias">Tecnologias</a> • 
  <a href="#contribuicao">Contribuição</a> • 
  <a href="#licenc-a">Licença</a> • 
  <a href="#autor">Autor</a>
-</p>
+</p> -->
 
 <h1 align="center">
-  <img alt="MyGPS" title="#MyGPS" src="./assets/images/telas.png" />
+  <img alt="MyGPS" title="#MyGPS" src="./assets/images/mygpsvideo.gif" height="600" />
 </h1>
 
-### Pré-requisitos
+<h1 align="center">Pré-requisitos</h1>
 
 Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
-[Git](https://git-scm.com), [Node.js](https://nodejs.org/en/), [docker](), [docker-compose](). 
+[Git](https://git-scm.com), [Node.js](https://nodejs.org/en/), [docker](https://www.docker.com/), [docker-compose](https://docs.docker.com/compose/install/). 
 Além disto é bom ter um editor para trabalhar com o código como [VSCode](https://code.visualstudio.com/)
 
-### 🎲 Rodando o Back End (servidor)
+<h1 align="center">🎲 Rodando o Back End (servidor)</h1>
 
+clone o repositório
 ```bash
 $ git clone https://github.com/contele/cntl-test.git
 ```
+Acesse o diretório
 ```bash
 $ cd cntl-test/react-native
 ```
+Instale as dependências do projeto
 ```bash
 $ npm install
 ```
+Suba as imagens do docker
 ```bash
 $ docker-compose up --build
 ```
@@ -53,38 +57,52 @@ Para acessar a documentação dos endpoints, basta acessar a URL: http://localho
   <a href="https://github.com/caiopratali/mygps-react-native/blob/main/assets/json/mygps-endpoints-insomnia.json" target="_blank"><img src="https://insomnia.rest/images/run.svg" alt="Run in Insomnia"></a>
 </p>
 
+<h1 align="center">🧭 Rodando a aplicação web (Frontend)</h1>
 
-### 🧭 Rodando a aplicação web (Frontend)
-
+clone o repositório
 ```bash
 $ git clone https://github.com/caiopratali/mygps-react-native.git
 ```
+Acesse o diretório
 ```bash
 $ cd mygps-react-native
 ```
-Abra o projeto no seu editor de texto favorito e altere o arquivo .env da raiz do projeto.
+Abra o projeto com seu editor de texto favorito e altere o arquivo .env que está raiz do projeto.
 ```js
-// Se não funcionar com localhost altere para o seu ip.
-
 API_URL="http://localhost:8081/points/"
 ```
+Instale as dependências do projeto
 ```bash
 $ yarn add
 ```
+Inicie a aplicação
 ```bash
 $ yarn start --port=8082
 ```
+Execute o projeto emulador
 ```bash
 $ yarn android --port=8082
 ```
 
+<h1 align="center">Features</h1>
 
-### 🛠 Tecnologias
+- [x] Status da rede
+- [x] Switch para ativar ou desativar o serviço
+- [x] Botões para definir intervalo
+- [x] Obter localização
+- [x] Offline
+- [x] Sincronizar com o backend
+- [x] Android
+- [ ] IOS (Precisa definir as permissões, necessário um dispositivo com MacOS).
+
+<h1 align="center">Tecnologias</h1>
 
 As seguintes ferramentas foram usadas na construção do projeto:
 
-- [Node.js](https://nodejs.org/en/)
-- [React](https://pt-br.reactjs.org/)
 - [React Native](https://reactnative.dev/)
 - [TypeScript](https://www.typescriptlang.org/)
-- [Redux](https://expo.io/)
+- [Redux](https://redux.js.org/)
+
+<h1 align="center">Autor</h1>
+
+<p align="center">Desenvolvido por <strong><a href="https://github.com/caiopratali">Caio Pratali</a></strong></p>
