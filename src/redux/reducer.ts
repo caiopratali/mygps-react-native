@@ -44,17 +44,23 @@ export const rootReducer = (state = INITIAL_STATE, action: any) => {
     case FETCH_POINTS_REQUEST:
       return state;
     case ADD_POINTS_REQUEST:
-      console.log(state);
       return {
         ...state,
         packages: [...state.packages, action.payload],
       };
     case ADD_POINTS_COMMIT:
+      console.log(state);
       const pointIndex = state.packages.findIndex(
         item => item.id === action.meta.payload.id,
       );
-      state.packages[pointIndex].points.status = action.payload.status;
-      return state;
+      const dataPackages = [...state.packages];
+
+      dataPackages.packages[pointIndex].points.status = action.payload.status;
+
+      return {
+        ...state,
+        packages: dataPackages,
+      };
     default:
       return state;
   }
