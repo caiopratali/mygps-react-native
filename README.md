@@ -96,4 +96,4 @@ As seguintes ferramentas foram usadas na construção do projeto:
 
 <h1 align="center">Autor</h1>
 
-<h3 align="center">Desenvolvido por <strong><a href="https://github.com/caiopratali">Caio Pratali</a></strong></h3>
+<p align="center">Desenvolvido por <strong><a href="https://github.com/caiopratali">Caio Pratali</a></strong></p>
