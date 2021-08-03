@@ -14,15 +14,6 @@
 
 <p align="center">Application developed with React Native and Redux, which sends location at each selected time interval.</p>
 
-<!-- <p align="center">
- <a href="#objetivo">Objetivo</a> •
- <a href="#roadmap">Roadmap</a> • 
- <a href="#tecnologias">Tecnologias</a> • 
- <a href="#contribuicao">Contribuição</a> • 
- <a href="#licenc-a">Licença</a> • 
- <a href="#autor">Autor</a>
-</p> -->
-
 <h1 align="center">
   <img alt="MyGPS" title="#MyGPS" src="./assets/images/mygpsvideo.gif" height="600" />
 </h1>
@@ -105,4 +96,4 @@ As seguintes ferramentas foram usadas na construção do projeto:
 
 <h1 align="center">Autor</h1>
 
-<p align="center">Desenvolvido por <strong><a href="https://github.com/caiopratali">Caio Pratali</a></strong></p>
+<h3 align="center">Desenvolvido por <strong><a href="https://github.com/caiopratali">Caio Pratali</a></strong></h3>
