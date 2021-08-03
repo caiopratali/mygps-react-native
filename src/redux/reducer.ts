@@ -49,7 +49,6 @@ export const rootReducer = (state = INITIAL_STATE, action: any) => {
         packages: [...state.packages, action.payload],
       };
     case ADD_POINTS_COMMIT:
-      console.log(state);
       const pointIndex = state.packages.findIndex(
         item => item.id === action.meta.payload.id,
       );
